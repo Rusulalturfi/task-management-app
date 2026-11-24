@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <script src="app.js" defer></script>
+    <title>Task Management</title>
+
+</head>
+
+ 
+<body>
+    <main>
+     <h1>Task Manager</h1>
+
+  <form id="task-form">
+    <label for="task-name">Task name</label>
+    <input id="task-name" type="text" required>
+
+    <label for="task-category">Category</label>
+    <select id="task-category">
+      <option value="Work">Work</option>
+      <option value="School">School</option>
+      <option value="Personal">Personal</option>
+    </select>
+
+    <label for="task-deadline">Deadline</label>
+    <input id="task-deadline" type="date" required>
+
+    <label for="task-status">Status</label>
+    <select id="task-status">
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+    </select>
+
+    <button type="submit">Add Task</button>
+  </form>
+  <section>
+  <h2>Filter tasks</h2>
+
+  <label for="status-filter">Filter by status</label>
+  <select id="status-filter">
+    <option value="All">All</option>
+    <option value="In Progress">In Progress</option>
+    <option value="Completed">Completed</option>
+    <option value="Overdue">Overdue</option>
+  </select>
+
+  <label for="category-filter">Filter by category</label>
+  <select id="category-filter">
+    <option value="All">All</option>
+    <option value="Work">Work</option>
+    <option value="School">School</option>
+    <option value="Personal">Personal</option>
+  </select>
+</section>
+
+  <ul id="task-list"></ul>
+</main>
+</body>
+</html>
