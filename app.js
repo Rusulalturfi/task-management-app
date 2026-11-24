@@ -1,3 +1,4 @@
+// Connect JavaScript to the HTML elements
 const taskForm = document.getElementById("task-form");
 const taskNameInput = document.getElementById("task-name");
 const taskCategoryInput = document.getElementById("task-category");
@@ -7,13 +8,16 @@ const taskList = document.getElementById("task-list");
 const statusFilter = document.getElementById("status-filter");
 const categoryFilter = document.getElementById("category-filter");
 
+// Load saved tasks from the browser
 const savedTasks = localStorage.getItem("tasks");
 let tasks = savedTasks ? JSON.parse(savedTasks) : [];
 
+// Save the current tasks in local storage
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+// Check if a task is completed or overdue
 function getCurrentStatus(task) {
   if (task.status === "Completed") {
     return "Completed";
@@ -28,6 +32,7 @@ function getCurrentStatus(task) {
   return "In Progress";
 }
 
+// Display tasks that match the selected filters
 function renderTasks() {
   taskList.innerHTML = "";
 
@@ -81,6 +86,7 @@ function renderTasks() {
   });
 }
 
+// Add a task when the form is submitted
 taskForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -102,6 +108,7 @@ taskForm.addEventListener("submit", function (event) {
   taskForm.reset();
 });
 
+// Update task status when a status dropdown changes
 taskList.addEventListener("change", function (event) {
   if (!event.target.classList.contains("task-status-select")) {
     return;
@@ -119,7 +126,9 @@ taskList.addEventListener("change", function (event) {
   }
 });
 
+// Update the list when either filter changes
 statusFilter.addEventListener("change", renderTasks);
 categoryFilter.addEventListener("change", renderTasks);
 
+// Display saved tasks when the page loads
 renderTasks();
